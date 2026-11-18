@@ -1,0 +1,17 @@
+[project]
+name = "caju-suporte"
+version = "0.1.0"
+description = "Agente de suporte da Loja Caju: projeto de aprendizado de engenharia de IA"
+requires-python = ">=3.12"
+dependencies = [
+    "ollama>=0.6",
+    # O servidor MCP entra na sprint 2. Versão 2.x: a classe se chama MCPServer, não FastMCP.
+    "mcp>=2.3,<3",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
