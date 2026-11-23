@@ -17,6 +17,12 @@ Escreva com suas palavras, como se fosse explicar para um colega. Frases curtas 
 - Observação: perguntei a data e ele raciocinou que não sabia, mas respondeu "30/10/2024" com confiança.
 - Infra: o espelho do Omarchy deu 404 (lista de pacotes velha, resolvido com `omarchy update`) e o disco encheu (resolvido limpando o cache do pacman e snapshots antigos)
 
+### CAJU-03 · Chat no terminal
+1. O que o think faz e onde o raciocínio aparece na resposta?
+- O `think` é um campo no chat que habilita ou desabilita (true ou false) o pensamento na saída da resposta. Quando enviei sem esse parâmetro, ele veio pré-setado como true, saindo o campo `thinking` no output com o raciocinio utilizado para chegar à resposta
+- Habilitar ou desabilitar o `think` traz consigo uma questão de custo X qualidade. O que vou escrever a seguir é baseado em testes que fiz no terminal. Quando o parâmetro está desabilitado, ele tem um custo menor: gasta menos tokens e a resposta é gerada em um tempo menor. Ainda sobre o quesito custo, quando o parâmetro está habilitado, são gastos mais tokens e a resposta demorou quase o dobro de tempo para ser gerada. No entanto, quando falamos sobre qualidade das respostas geradas, as respostas geradas para o `think=True` foram mais corretas do que as para `think=False`, tendo uma qualidade maior.
+- No momento, acredito que quero mais agilidade no meu chat(), pois não é interessante que o cliente fique esperando tanto tempo, vou apostar na rapidex do `think=False` por padrão.
+
 ### CAJU-04 · Experimentos
 **E1 · Temperatura**
 - Esperava:

@@ -10,7 +10,7 @@ Biblioteca:   pip install ollama   (o Ollama precisa estar rodando: `ollama serv
 from caju.config import MODELO
 
 
-def chat(mensagens: list[dict], modelo: str = MODELO, temperatura: float = 0.7) -> str:
+def chat(mensagens: list[dict], modelo: str = MODELO, temperatura: float = 0.7, pensar: bool = False) -> str:
     """CAJU-03: manda a lista de mensagens ao Ollama e devolve só o texto da resposta.
 
     Pistas:
@@ -19,7 +19,11 @@ def chat(mensagens: list[dict], modelo: str = MODELO, temperatura: float = 0.7) 
     - O qwen3 pode "pensar" antes de responder. Descubra na documentação onde esse
       raciocínio aparece na resposta e o que o parâmetro `think` faz. Anote no diário.
     """
-    raise NotImplementedError("CAJU-03")
+    import ollama
+
+    resposta = ollama.chat(model=modelo, messages=mensagens, options={"temperature": temperatura}, think=pensar)
+
+    return resposta.message.content
 
 
 class OllamaLLM:
